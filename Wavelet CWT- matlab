@@ -4,7 +4,7 @@
 #===============================================
 #x1 is the signal, fs the sampling frequency and the morse parameters 
 [cfs,f] = cwt(x1,Fs,"WaveletParameters",[14,200]); 
-#normalizar e botar em logaritimo 
+#normalize and put in log scale 
 mag = abs(cfs)
 magDB = 20*log10(mag + eps) 
 magDB = magDB - max(magDB(:));
@@ -15,3 +15,6 @@ colormap(jet);
 colorbar;
 xlabel("Time (s)");
 ylabel("Frequency (Hz)");
+#in case you want to impose limits on the plot and dynamic range
+caxis([-60 0]);
+ylim([2 120]);
