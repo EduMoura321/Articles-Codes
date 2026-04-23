@@ -1,0 +1,17 @@
+#Code-Matlab 
+#Wavelat-signal processing 
+#by Eduardo Moura :) 
+#===============================================
+#x1 is the signal, fs the sampling frequency and the morse parameters 
+[cfs,f] = cwt(x1,Fs,"WaveletParameters",[14,200]); 
+#normalizar e botar em logaritimo 
+mag = abs(cfs)
+magDB = 20*log10(mag + eps) 
+magDB = magDB - max(magDB(:));
+#plot 
+imagesc(t,f, magDB);
+axis xy; 
+colormap(jet);
+colorbar;
+xlabel("Time (s)");
+ylabel("Frequency (Hz)");
