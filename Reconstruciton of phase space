@@ -1,0 +1,15 @@
+%Code-Matlab
+% Phase space reconstruction 
+% Eduardo Moura Ventorim 
+
+%apply function in signal Xr with lag and dim stimated
+[XR, lag, dim] = phaseSpaceReconstruction(X);
+
+% Plot the PSR (if dim is at least 3)
+if dim >= 3
+    figure;
+    plot3(XR(:,1), XR(:,2), XR(:,3));
+    title('Reconstructed Phase Space');
+    xlabel('X(t)'); ylabel('X(t + \tau)'); zlabel('X(t + 2\tau)');
+    grid on;
+end
