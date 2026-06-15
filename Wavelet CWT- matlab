@@ -1,20 +1,22 @@
-#Code-Matlab 
-#Wavelat-signal processing 
-#by Eduardo Moura :) 
+%Code-Matlab 
+%Wavelat-signal processing 
+%by Eduardo Moura :) 
 #===============================================
-#x1 is the signal, fs the sampling frequency and the morse parameters 
+%x1 is the signal, fs the sampling frequency and the morse parameters 
+x1 = %put here the signal
+Fs = 
 [cfs,f] = cwt(x1,Fs,"WaveletParameters",[14,200]); 
-#normalize and put in log scale 
+%normalize and put in log scale 
 mag = abs(cfs)
 magDB = 20*log10(mag + eps) 
 magDB = magDB - max(magDB(:));
-#plot 
+%plot 
 imagesc(t,f, magDB);
 axis xy; 
 colormap(jet);
 colorbar;
 xlabel("Time (s)");
 ylabel("Frequency (Hz)");
-#in case you want to impose limits on the plot and dynamic range
+%in case you want to impose limits on the plot and dynamic range
 caxis([-60 0]);
 ylim([2 120]);
